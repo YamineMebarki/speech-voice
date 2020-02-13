@@ -40,18 +40,32 @@
             width: 10em ;
             height:auto;
         }
+        .mv{
+            margin-left:45%;
+        }
     </style>
 </head>
 <body>
-<div id="promoNode"></div>
-<button id="start-button"><i class="fas fa-microphone"></i></button>
+<h1 class="mt-5 text-center text-white">API Speech</h1>
+<div id="promoNode" class="mb-5"></div>
 <div class="text-center text-white mt-5">
-    <h1><em id="demo-echo" class="mt-5"></em></h1>
+    <h2><b><em id="demo-echo" class="mt-5"></em></b></h2>
 </div>
 <script type="text/javascript">
+    var ss = navigator.userAgent;
+    var t = 'Chrome';
+    var reg = new RegExp('\\b' + t + '\\b', "g");
+    var resultat = ss.match(reg);
+    if (resultat == null) {
+        document.write('<div class="container"><div class="row"><h1 class="text-danger text-center"><b>Désoler mais votre navigateur n\'est pas compatible</b></h1></div></div>');
+    }
+    else {
+        document.write('<button id="start-button" class="mv"><i class="fas fa-microphone"></i></button>');
+    }
     function startListening() {
+        var language =navigator.language;
         var recognition = new (webkitSpeechRecognition || SpeechRecognition)();
-        recognition.lang = 'fr-FR';
+        recognition.lang = language;
         recognition.interimResults = false;
         recognition.maxAlternatives = 1;
         recognition.start();
@@ -82,7 +96,7 @@
         };
         recognition.onresult = function() {
             document.querySelector('#demo-echo').textContent = event.results[0][0].transcript;
-            var txt =event.results[0][0].transcript;
+            var txt = event.results[0][0].transcript;
             speak(txt);
         };
     };
