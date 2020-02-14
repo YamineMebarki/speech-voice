@@ -41,7 +41,7 @@
             height:auto;
         }
         .mv{
-            margin-left:45%;
+            margin-left:15%;
         }
     </style>
 </head>
@@ -50,6 +50,7 @@
     <div class="row">
         <div class="col-12 text-center mt-5">
 
+            <h1 class="mt-5 mb-5  text-white">API Speech</h1>
             <div class="text-center text-white mb-5 mt-5">
                 <h2><b><em id="demo-echo" class="mt-5"></em></b></h2>
             </div>
@@ -67,7 +68,7 @@
         document.write('<h1 class="text-danger text-center"><b>Désoler mais votre navigateur n\'est pas compatible</b></h1>');
     }
     else {
-        document.write('<button id="start-button" class="mv"><i class="fas fa-microphone"></i></button>');
+        document.write('<button id="start-button" class="text-center"><i class="fas fa-microphone"></i></button>');
     }
     function startListening() {
         var language =navigator.language;
