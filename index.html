@@ -40,23 +40,19 @@
             width: 10em ;
             height:auto;
         }
-        .mv{
-            margin-left:45%;
-        }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-12 text-center mt-5">
-
             <h1 class="mt-5 mb-5  text-white">API Speech</h1>
             <div id="promoNode" class="mb-5 mt-5"></div>
             <div class="text-center text-white mb-5 mt-5">
                 <h2><b><em id="demo-echo" class="mt-5"></em></b></h2>
             </div>
             <div id="btn"></div>
-            <h1 id="navigator" class="text-danger"></h1>
+            <h1 id="navigator" class="text-danger text-center"></h1>
         </div>
     </div>
 </div>
@@ -69,7 +65,7 @@
         document.querySelector('#navigator').innerHTML = 'Désoler mais votre navigateur n\'est pas compatible';
     }
     else {
-        document.querySelector('#btn').innerHTML =  '<button id="start-button" class="mv"><i class="fas fa-microphone"></i></button>';
+        document.querySelector('#btn').innerHTML =  '<button id="start-button" class="text-center"><i class="fas fa-microphone"></i></button>';
     }
     function startListening() {
         var language =navigator.language;
@@ -109,9 +105,7 @@
             speak(txt);
         };
     };
-    (function() {
-        document.querySelector('#start-button').addEventListener('click', startListening);
-    })();
+
 </script>
 </body>
 </html>
