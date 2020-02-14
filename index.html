@@ -41,7 +41,7 @@
             height:auto;
         }
         .mv{
-            margin-left:15%;
+            margin-left:45%;
         }
     </style>
 </head>
@@ -51,11 +51,12 @@
         <div class="col-12 text-center mt-5">
 
             <h1 class="mt-5 mb-5  text-white">API Speech</h1>
+            <div id="promoNode" class="mb-5 mt-5"></div>
             <div class="text-center text-white mb-5 mt-5">
                 <h2><b><em id="demo-echo" class="mt-5"></em></b></h2>
             </div>
-            <div id="promoNode" class="mb-5 mt-5"></div>
-
+            <div id="btn"></div>
+            <h1 id="navigator" class="text-danger"></h1>
         </div>
     </div>
 </div>
@@ -65,10 +66,10 @@
     var reg = new RegExp('\\b' + t + '\\b', "g");
     var resultat = ss.match(reg);
     if (resultat == null) {
-        document.write('<h1 class="text-danger text-center"><b>Désoler mais votre navigateur n\'est pas compatible</b></h1>');
+        document.querySelector('#navigator').innerHTML = 'Désoler mais votre navigateur n\'est pas compatible';
     }
     else {
-        document.write('<button id="start-button" class="text-center"><i class="fas fa-microphone"></i></button>');
+        document.querySelector('#btn').innerHTML =  '<button id="start-button" class="mv"><i class="fas fa-microphone"></i></button>';
     }
     function startListening() {
         var language =navigator.language;
